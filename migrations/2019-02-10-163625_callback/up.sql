@@ -1,0 +1,5 @@
+CREATE TABLE callbacks (
+  id SERIAL PRIMARY KEY,
+  url VARCHAR NOT NULL,
+  scheduled_date TIMESTAMP WITH TIME ZONE NOT NULL
+)

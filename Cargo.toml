@@ -1,0 +1,24 @@
+[package]
+name = "callmeback"
+version = "0.1.0"
+authors = ["David Rousselie <david@rousselie.name>"]
+edition = "2018"
+
+[[bin]]
+name = "callmeback"
+doc = false
+
+[dependencies]
+actix = "0.7"
+actix-web = "0.7"
+listenfd = "0.3" # Run app using `systemfd --no-pid -s http::3000 -- cargo watch -x run`
+serde = "1.0"
+serde_json = "1.0"
+serde_derive = "1.0"
+actix-web-requestid = "0.1"
+env_logger = "0.6"
+diesel = { version = "1.4", features = ["postgres", "chrono", "r2d2"] }
+dotenv = "0.13"
+chrono = { version = "0.4", features = ["serde"] }
+futures = "0.1"
+r2d2 = "0.8"

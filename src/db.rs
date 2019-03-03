@@ -10,10 +10,10 @@ impl Actor for DbExecutor {
 
 impl DbExecutor {
     pub fn new(database_url: &str) -> Self {
-        DbExecutor(
-            PgConnection::establish(database_url)
-                .unwrap_or_else(|_| panic!("Error connecting to {}", database_url)),
-        )
+        DbExecutor(match PgConnection::establish(database_url) {
+            Err(e) => panic!("Error connecting to {}: {}", database_url, e),
+            Ok(c) => c,
+        })
     }
 }
 
